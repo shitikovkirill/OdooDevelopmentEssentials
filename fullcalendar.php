@@ -12,6 +12,7 @@ License: A "Slug" license name e.g. GPL2
 require_once 'Resources.php';
 require_once 'Shortcode.php';
 require_once 'Admin.php';
+require_once 'view/View.php';
 
 FullCalendar::singleton();
 

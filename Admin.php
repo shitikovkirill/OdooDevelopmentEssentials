@@ -5,9 +5,9 @@
  * Date: 30.03.16
  * Time: 21:01
  */
-
 namespace Calendar;
 
+use Calendar\View\View;
 
 class Admin
 {
@@ -22,6 +22,8 @@ class Admin
     }
 
     public function adminPageMain(){
-
+       $view = new View();
+        $html = $view->mainPage();
+        return $html;
     }
 }
