@@ -17,13 +17,13 @@ class View
         $templates = __DIR__.'/templates';
         $cache = __DIR__.'/compilation_cache';
         \Twig_Autoloader::register();
-        $loader = new Twig_Loader_Filesystem($templates);
-        $this->twig = new Twig_Environment($loader, array(
+        $loader = new \Twig_Loader_Filesystem($templates);
+        $this->twig = new \Twig_Environment($loader, array(
             'debug' => true,
             'cache'       => $cache,
             'auto_reload' => true
         ));
-        $this->twig->addExtension(new Twig_Extension_Debug());
+        $this->twig->addExtension(new \Twig_Extension_Debug());
     }
     public function mainPage(){
 
