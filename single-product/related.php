@@ -44,7 +44,7 @@ $products = new WP_Query( $args );
 $woocommerce_loop['columns'] = $columns;
 
 if ( $products->have_posts() ) : ?>
-
+<div class="filters woocommerce_related_products_args">
 	<div class="related products">
 
 		<h2><?php _e( 'Related Products', 'woocommerce' ); ?></h2>
@@ -60,7 +60,7 @@ if ( $products->have_posts() ) : ?>
 		<?php woocommerce_product_loop_end(); ?>
 
 	</div>
-
+</div>
 <?php endif;
 
 wp_reset_postdata(); ?>

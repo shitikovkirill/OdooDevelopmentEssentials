@@ -25,9 +25,9 @@ global $post, $product;
 
 	<div class="action woocommerce_share">
 	<?php if ( $product->is_on_sale() ) : ?>
-
+		<div class="filters woocommerce_sale_flash">
 		<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . __( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
-
+		</div>
 	<?php endif; ?>
 	</div>
 </div>

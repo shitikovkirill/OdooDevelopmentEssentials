@@ -28,7 +28,9 @@ if ( ! $post->post_excerpt ) {
 
 ?>
 <div itemprop="description">
+	<div class="filters woocommerce_short_description"
 	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+	</div>
 </div>
 
 </div>

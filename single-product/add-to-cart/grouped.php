@@ -63,17 +63,19 @@
                             <?php echo $product->is_visible() ? '<a href="' . esc_url(apply_filters('woocommerce_grouped_product_list_link', get_permalink(), $product_id)) . '">' . esc_html(get_the_title()) . '</a>' : esc_html(get_the_title()); ?>
                         </label>
                     </td>
-
-                    <?php do_action('woocommerce_grouped_product_list_before_price', $product); ?>
-
+                    <div class="action woocommerce_grouped_product_list_before_price">
+                        <?php do_action('woocommerce_grouped_product_list_before_price', $product); ?>
+                    </div>
                     <td class="price">
                         <?php
                         echo $product->get_price_html();
 
                         if ($availability = $product->get_availability()) {
-                            $availability_html = empty($availability['availability']) ? '' : '<p class="stock ' . esc_attr($availability['class']) . '">' . esc_html($availability['availability']) . '</p>';
-                            echo apply_filters('woocommerce_stock_html', $availability_html, $availability['availability'], $product);
-                        }
+                            $availability_html = empty($availability['availability']) ? '' : '<p class="stock ' . esc_attr($availability['class']) . '">' . esc_html($availability['availability']) . '</p>';?>
+                           <div class="filters woocommerce_stock_html">
+                                <?php echo apply_filters('woocommerce_stock_html', $availability_html, $availability['availability'], $product); ?>
+                           </div>
+                       <?php }
                         ?>
                     </td>
                 </tr>
@@ -103,4 +105,4 @@
     </form>
 
     <?php do_action('woocommerce_after_add_to_cart_form'); ?>
-<div>
+    <div>

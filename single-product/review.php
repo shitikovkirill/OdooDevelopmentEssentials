@@ -29,9 +29,9 @@ $verified = wc_review_is_from_verified_owner( $comment->comment_ID );
 <li itemprop="review" itemscope itemtype="http://schema.org/Review" <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
 
 	<div id="comment-<?php comment_ID(); ?>" class="comment_container">
-
-		<?php echo get_avatar( $comment, apply_filters( 'woocommerce_review_gravatar_size', '60' ), '' ); ?>
-
+		<div class="filters woocommerce_review_gravatar_size">
+			<?php echo get_avatar( $comment, apply_filters( 'woocommerce_review_gravatar_size', '60' ), '' ); ?>
+		</div>
 		<div class="comment-text">
 
 			<?php if ( $rating && get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) : ?>
@@ -41,9 +41,9 @@ $verified = wc_review_is_from_verified_owner( $comment->comment_ID );
 				</div>
 
 			<?php endif; ?>
-
-			<?php do_action( 'woocommerce_review_before_comment_meta', $comment ); ?>
-
+			<div class="action woocommerce_review_before_comment_meta">
+				<?php do_action( 'woocommerce_review_before_comment_meta', $comment ); ?>
+			</div>
 			<?php if ( $comment->comment_approved == '0' ) : ?>
 
 				<p class="meta"><em><?php _e( 'Your comment is awaiting approval', 'woocommerce' ); ?></em></p>
@@ -61,13 +61,13 @@ $verified = wc_review_is_from_verified_owner( $comment->comment_ID );
 				</p>
 
 			<?php endif; ?>
-
-			<?php do_action( 'woocommerce_review_before_comment_text', $comment ); ?>
-
+			<div class="action woocommerce_review_before_comment_text">
+				<?php do_action( 'woocommerce_review_before_comment_text', $comment ); ?>
+			</div>
 			<div itemprop="description" class="description"><?php comment_text(); ?></div>
-
-			<?php do_action( 'woocommerce_review_after_comment_text', $comment ); ?>
-
+			<div class="action woocommerce_review_after_comment_text">
+				<?php do_action( 'woocommerce_review_after_comment_text', $comment ); ?>
+			</div>
 		</div>
 	</div>
 </div>

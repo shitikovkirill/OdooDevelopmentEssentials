@@ -26,8 +26,9 @@
 
     ?>
     <div class="product_meta">
-
-        <?php do_action('woocommerce_product_meta_start'); ?>
+        <div class="action woocommerce_product_meta_start">
+            <?php do_action('woocommerce_product_meta_start'); ?>
+        </div>
 
         <?php if (wc_product_sku_enabled() && ($product->get_sku() || $product->is_type('variable'))) : ?>
 
@@ -39,8 +40,8 @@
         <?php echo $product->get_categories(', ', '<span class="posted_in">' . _n('Category:', 'Categories:', $cat_count, 'woocommerce') . ' ', '</span>'); ?>
 
         <?php echo $product->get_tags(', ', '<span class="tagged_as">' . _n('Tag:', 'Tags:', $tag_count, 'woocommerce') . ' ', '</span>'); ?>
-
-        <?php do_action('woocommerce_product_meta_end'); ?>
-
+        <div class="action woocommerce_product_meta_end">
+            <?php do_action('woocommerce_product_meta_end'); ?>
+        </div>
     </div>
 </div>
