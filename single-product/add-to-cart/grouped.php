@@ -21,10 +21,10 @@
 
     global $product, $post;
 
-    $parent_product_post = $post;
-
-    do_action('woocommerce_before_add_to_cart_form'); ?>
-
+    $parent_product_post = $post; ?>
+    <div class="action woocommerce_before_add_to_cart_form">
+        <?php do_action('woocommerce_before_add_to_cart_form'); ?>
+    </div>
     <form class="cart" method="post" enctype='multipart/form-data'>
         <table cellspacing="0" class="group_table">
             <tbody>
@@ -71,11 +71,11 @@
                         echo $product->get_price_html();
 
                         if ($availability = $product->get_availability()) {
-                            $availability_html = empty($availability['availability']) ? '' : '<p class="stock ' . esc_attr($availability['class']) . '">' . esc_html($availability['availability']) . '</p>';?>
-                           <div class="filters woocommerce_stock_html">
+                            $availability_html = empty($availability['availability']) ? '' : '<p class="stock ' . esc_attr($availability['class']) . '">' . esc_html($availability['availability']) . '</p>'; ?>
+                            <div class="filters woocommerce_stock_html">
                                 <?php echo apply_filters('woocommerce_stock_html', $availability_html, $availability['availability'], $product); ?>
-                           </div>
-                       <?php }
+                            </div>
+                        <?php }
                         ?>
                     </td>
                 </tr>
@@ -93,16 +93,17 @@
         <input type="hidden" name="add-to-cart" value="<?php echo esc_attr($product->id); ?>"/>
 
         <?php if ($quantites_required) : ?>
-
-            <?php do_action('woocommerce_before_add_to_cart_button'); ?>
-
+            <div class="action woocommerce_before_add_to_cart_button">
+                <?php do_action('woocommerce_before_add_to_cart_button'); ?>
+            </div>
             <button type="submit"
                     class="single_add_to_cart_button button alt"><?php echo $product->single_add_to_cart_text(); ?></button>
-
+        <div class="action woocommerce_after_add_to_cart_button">
             <?php do_action('woocommerce_after_add_to_cart_button'); ?>
-
+        </div>
         <?php endif; ?>
     </form>
-
-    <?php do_action('woocommerce_after_add_to_cart_form'); ?>
+    <div class="action woocommerce_after_add_to_cart_form">
+        <?php do_action('woocommerce_after_add_to_cart_form'); ?>
+    </div>
     <div>
