@@ -1,4 +1,4 @@
-<?php
+<div class="page up-sells" ><?php
 /**
  * Single Product Up-Sells
  *
@@ -18,7 +18,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-echo '<div class="page up-sells" >';
 global $product, $woocommerce_loop;
 
 $upsells = $product->get_upsells();
@@ -64,4 +63,6 @@ if ( $products->have_posts() ) : ?>
 
 <?php endif;
 
-wp_reset_postdata();
+wp_reset_postdata();?>
+
+	</div>

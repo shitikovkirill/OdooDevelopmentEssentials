@@ -1,4 +1,4 @@
-<?php
+<div class="page share"><?php
 /**
  * Single Product Share
  *
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="page share">
+
 	<div class="action woocommerce_share">
 		<?php do_action( 'woocommerce_share' ); // Sharing plugins can hook into here ?>
 	</div>

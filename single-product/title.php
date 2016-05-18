@@ -1,4 +1,4 @@
-<?php
+<div class="page title"><?php
 /**
  * Single Product title
  *
@@ -20,6 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="page title">
+
 	<h1 itemprop="name" class="product_title entry-title"><?php the_title(); ?></h1>
 </div>

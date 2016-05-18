@@ -1,4 +1,4 @@
-<?php
+<div class="page review"><?php
 /**
  * Review Comments Template
  *
@@ -25,7 +25,7 @@ $rating   = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
 $verified = wc_review_is_from_verified_owner( $comment->comment_ID );
 
 ?>
-<div class="page review">
+
 <li itemprop="review" itemscope itemtype="http://schema.org/Review" <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
 
 	<div id="comment-<?php comment_ID(); ?>" class="comment_container">

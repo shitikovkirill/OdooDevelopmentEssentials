@@ -19,7 +19,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-echo '<div class="page product-thumbnails">';
 global $post, $product, $woocommerce;
 
 $attachment_ids = $product->get_gallery_attachment_ids();
@@ -61,7 +60,6 @@ if ( $attachment_ids ) {
 		}
 
 	?></div>
-	</div>
 </div>
 	<?php
 }

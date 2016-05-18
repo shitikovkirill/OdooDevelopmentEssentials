@@ -1,4 +1,4 @@
-<?php
+<div class="page share"><?php
 /**
  * Single Product Sale Flash
  *
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $product;
 
 ?>
-<div class="page share">
+
 	<div class="action woocommerce_share">
 	<?php if ( $product->is_on_sale() ) : ?>
 
