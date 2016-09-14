@@ -1,0 +1,4 @@
+<div>
+    <div id='loading'>loading...</div>
+    <div id='calendar'></div>
+</div>

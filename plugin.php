@@ -1,7 +1,7 @@
 <?php
 /*
 
-Plugin Name: [MY PLUGIN]
+Plugin Name: Calendar
 
 Plugin URI: [MY URL]
 
@@ -14,6 +14,8 @@ Author: [MY NAME OR COMPANY]
 Author URI: [MY IR COMPANY URL]
 
 */
+
+define('BASE_PATH', __FILE__);
 
 //------------------------------------------------------------
 //

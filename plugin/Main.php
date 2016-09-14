@@ -21,12 +21,7 @@ class Main extends Plugin
 	 */
 	public function init()
 	{
-		// i.e.
-		// add_action( 'save_post', [ &$this, 'save_post' ] );
-		// 
-		// $this->add_action( 'save_post', 'PostController@save' );
-		// 
-		// $this->add_shortcode( 'hello_world', 'view@shout', [ 'message' => 'Hello World!' ] );
+		$this->add_shortcode( 'calendar', 'CalendarController@index');
 	}
 
 	/**
