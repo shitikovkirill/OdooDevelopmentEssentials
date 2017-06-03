@@ -17,5 +17,5 @@ class TodoTask(models.Model):
     def do_clear_done(self):
         done_recs = self.search([('is_done', '=', True)])
 
-        done_recs.write({'active': False})
+        done_recs.write({'is_done': False})
         return True
