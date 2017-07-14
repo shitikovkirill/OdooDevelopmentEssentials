@@ -27,3 +27,8 @@ class Stage(models.Model):
     # Other fields:
     fold = fields.Boolean('Folded?')
     image = fields.Binary('Image')
+
+class TodoTask(models.Model):
+    _inherit = 'todo.task'
+    stage_id = fields.Many2one('todo.task.stage', 'Stage')
+    tag_ids = fields.Many2many('todo.task.tag', string='Tags')
