@@ -55,3 +55,7 @@ class TodoTask(models.Model):
         column2='tag_id',
         # field for "other" record
         string='Tasks')
+
+    refers_to = fields.Reference(
+        [('res.user', 'User'), ('res.partner', 'Partner')],
+        'Refers to')
