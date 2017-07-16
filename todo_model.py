@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
+from openerp.addons.base.res import res_request
 
 
 class Tag(models.Model):
@@ -43,6 +44,10 @@ class Stage(models.Model):
         # field for "this" on related model
         'Tasks in this stage')
 
+def referencable_models(self):
+    return res_request.referencable_models(
+        self, self.env.cr, self.env.uid, context=self.env.context)
+
 class TodoTask(models.Model):
     _inherit = 'todo.task'
     stage_id = fields.Many2one('todo.task.stage', 'Stage')
@@ -56,6 +61,12 @@ class TodoTask(models.Model):
         # field for "other" record
         string='Tasks')
 
+    # Old api
+    #refers_to = fields.Reference(
+    #    [('res.user', 'User'), ('res.partner', 'Partner')],
+    #    'Refers to')
+
     refers_to = fields.Reference(
-        [('res.user', 'User'), ('res.partner', 'Partner')],
-        'Refers to')
+        referencable_models, 'Refers to')
+
+
