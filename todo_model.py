@@ -5,6 +5,14 @@ from openerp import models, fields, api
 class Tag(models.Model):
     _name = 'todo.task.tag'
     name = fields.Char('Name')
+    task_ids = fields.Many2many(
+        'todo.task',
+        # related model
+        string='Tasks')
+    parent_id = fields.Many2one(
+        'todo.task.tag', 'Parent Tag', ondelete='restrict')
+    parent_left = fields.Integer('Parent Left', index=True)
+    parent_right = fields.Integer('Parent Right', index=True)
 
 
 class Stage(models.Model):
