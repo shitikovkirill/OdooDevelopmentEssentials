@@ -28,7 +28,22 @@ class Stage(models.Model):
     fold = fields.Boolean('Folded?')
     image = fields.Binary('Image')
 
+    tasks = fields.One2many(
+        'todo.task',
+        # related model
+        'stage_id',
+        # field for "this" on related model
+        'Tasks in this stage')
+
 class TodoTask(models.Model):
     _inherit = 'todo.task'
     stage_id = fields.Many2one('todo.task.stage', 'Stage')
-    tag_ids = fields.Many2many('todo.task.tag', string='Tags')
+    # TodoTask class: Task <-> Tag relation (long form):
+    tag_ids = fields.Many2many(
+        comodel_name='todo.task.tag',  # related model
+        relation='todo_task_tag_rel',  # relation table name
+        column1='task_id',
+        # field for "this" record
+        column2='tag_id',
+        # field for "other" record
+        string='Tasks')
