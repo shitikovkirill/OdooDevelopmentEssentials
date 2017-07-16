@@ -69,4 +69,13 @@ class TodoTask(models.Model):
     refers_to = fields.Reference(
         referencable_models, 'Refers to')
 
+    stage_fold = fields.Boolean(
+        'Stage Folded?',
+        compute='_compute_stage_fold')
+
+    @api.one
+    @api.depends('stage_id.fold')
+    def _compute_stage_fold(self):
+        self.stage_fold = self.stage_id.fold
+
 
