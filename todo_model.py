@@ -87,4 +87,8 @@ class TodoTask(models.Model):
     def _write_stage_fold(self):
         self.stage_id.fold = self.stage_fold
 
+    stage_state = fields.Selection(
+        related='stage_id.state',
+        string='Stage State')
+
 
