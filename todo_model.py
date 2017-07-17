@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from openerp.addons.base.res import res_request
-
+from openerp.exceptions import ValidationError
 
 class Tag(models.Model):
     _name = 'todo.task.tag'
@@ -97,5 +97,9 @@ class TodoTask(models.Model):
         related='stage_id.state',
         string='Stage State')
 
-
+    @api.one
+    @api.constrains('name')
+    def _check_name_size(self):
+        if len(self.name) < 5:
+            raise ValidationError('Must have 5 chars!')
 
