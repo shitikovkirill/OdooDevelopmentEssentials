@@ -50,6 +50,12 @@ def referencable_models(self):
 
 class TodoTask(models.Model):
     _inherit = 'todo.task'
+
+    _sql_constraints = [
+        ('todo_task_name_uniq',
+         'UNIQUE (name, user_id, active)',
+         'Task title must be unique!')]
+
     stage_id = fields.Many2one('todo.task.stage', 'Stage')
     # TodoTask class: Task <-> Tag relation (long form):
     tag_ids = fields.Many2many(
@@ -90,5 +96,6 @@ class TodoTask(models.Model):
     stage_state = fields.Selection(
         related='stage_id.state',
         string='Stage State')
+
 
 
