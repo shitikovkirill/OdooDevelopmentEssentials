@@ -42,10 +42,24 @@
                         <field name="stage_state" invisible="True"/>
                         <button name="do_toggle_done" type="object"
                                 attrs="{'invisible':[('stage_state','in',['done','cancel'])]}"
-                                string="Toggle Done 2" class="oe_highlight"/>
+                                string="Toggle Done" class="oe_highlight"/>
                         <!-- Add stage statusbar: ... -->
+                        <field name="stage_id" widget="statusbar"
+                               clickable="True" options="{'fold_field': 'fold'}"/>
                     </header>
-                    <sheet> <!-- Form content --> </sheet>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            <h3>
+                                <span class="oe_read_only">By</span>
+                                <label for="user_id" class="oe_edit_only"/>
+                                <field name="user_id" class="oe_inline"/>
+                            </h3>
+                        </div><!-- Form content -->
+                    </sheet>
                     <!-- History and communication: -->
                     <div class="oe_chatter">
                         <field name="message_follower_ids"
