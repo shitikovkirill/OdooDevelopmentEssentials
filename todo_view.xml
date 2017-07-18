@@ -59,6 +59,7 @@
                                 <field name="user_id" class="oe_inline"/>
                             </h3>
                         </div><!-- Form content -->
+                        <label for="name" string=" " class="fa fa-wrench" />
                     </sheet>
                     <!-- History and communication: -->
                     <div class="oe_chatter">
