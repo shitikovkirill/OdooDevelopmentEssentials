@@ -49,6 +49,7 @@
                     </header>
                     <sheet>
                         <div class="oe_title">
+                            <label for="name" string=" " class="fa fa-wrench"/>
                             <label for="name" class="oe_edit_only"/>
                             <h1>
                                 <field name="name"/>
@@ -59,7 +60,17 @@
                                 <field name="user_id" class="oe_inline"/>
                             </h3>
                         </div><!-- Form content -->
-                        <label for="name" string=" " class="fa fa-wrench" />
+                        <div name="buttons" class="oe_right oe_button_box">
+                            <button class="oe_stat_button"
+                                    type="action" icon="fa-tasks"
+                                    name="%(todo_app.action_todo_task)d"
+                                    string=""
+                                    context="{'search_default_user_id': user_id, 'default_user_id': user_id}"
+                                    help="Other to-dos for this user">
+                                <field string="To-dos" name="user_todo_count"
+                                       widget="statinfo"/>
+                            </button>
+                        </div>
                     </sheet>
                     <!-- History and communication: -->
                     <div class="oe_chatter">
