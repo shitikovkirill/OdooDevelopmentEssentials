@@ -38,7 +38,13 @@
             <field name="model">todo.task</field>
             <field name="arch" type="xml">
                 <form>
-                    <header> <!-- Buttons and status widget --> </header>
+                    <header>
+                        <field name="stage_state" invisible="True"/>
+                        <button name="do_toggle_done" type="object"
+                                attrs="{'invisible':[('stage_state','in',['done','cancel'])]}"
+                                string="Toggle Done 2" class="oe_highlight"/>
+                        <!-- Add stage statusbar: ... -->
+                    </header>
                     <sheet> <!-- Form content --> </sheet>
                     <!-- History and communication: -->
                     <div class="oe_chatter">
