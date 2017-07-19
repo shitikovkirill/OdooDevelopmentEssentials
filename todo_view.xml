@@ -104,17 +104,22 @@
             </field>
         </record>
 
-        <!-- List views -->
-        <record id="todo_app.view_tree_todo_task" model="ir.ui.view">
-            <field name="name">To-do Task Tree</field>
+        <record id="todo_app.view_filter_todo_task"
+                model="ir.ui.view">
+            <field name="name">To-do Task Filter</field>
             <field name="model">todo.task</field>
             <field name="arch" type="xml">
-                <tree editable="bottom"
-                      colors="gray:is_done==True"
-                      fonts="italic: state!='open'" delete="false">
-                    <field name="name"/>
+                <search>
+                    <field name="name" domain_filter="['|',('name','ilike',self),('user_id','ilike',self)]"/>
                     <field name="user_id"/>
-                </tree>
+                    <filter name="filter_not_done" string="Not Done"
+                            domain="[('is_done','=',False)]"/>
+                    <filter name="filter_done" string="Done"
+                            domain="[('is_done','!=',False)]"/>
+                    <separator/>
+                    <filter name="group_user" string="By User"
+                            context="{'group_by': 'user_id'}"/>
+                </search>
             </field>
         </record>
     </data>
