@@ -29,3 +29,5 @@ apt-get install -y nodejs
 apt-get install -y npm
 ln -s /usr/bin/nodejs /usr/bin/node
 npm install -g less less-plugin-clean-css
+
+useradd -m -g sudo -s /bin/bash odoo -p odoo

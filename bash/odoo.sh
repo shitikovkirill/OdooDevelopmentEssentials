@@ -13,9 +13,9 @@ git clone https://github.com/odoo/odoo.git --depth 1 -b 8.0 --single-branch
 cd odoo
 
 echo -e "\n---- Install requirements ----"
-sudo pip install -r requirements.txt
+sudo pip install -R requirements.txt
 
 echo -e "\n---- Install requirements ----"
 python odoo.py setup_deps -y
 python odoo.py setup_pg
-python odoo.py --save --addons-path=/home/vagrant --stop-after-init --auto-reload
+python odoo.py --save --addons-path=/vagrant --stop-after-init --auto-reload
