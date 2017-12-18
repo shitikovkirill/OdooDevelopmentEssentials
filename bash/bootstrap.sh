@@ -4,7 +4,14 @@ echo -e "\n---- Install system updates ----"
 apt-get update && apt-get upgrade -y
 apt-get -y install sudo # Make sure 'sudo' is installed
 
-ln -s /vagrant /home/vagrant/addons
+file = "/home/vagrant/addons"
+if [ -f "$file" ]
+    then
+	    echo "File $file exist. Link was not created."
+    else
+	    echo "File $file not found. Link was created."
+	    ln -s /vagrant $file
+fi
 
 # Install PostgreSQL Server
 echo -e "\n---- Install PostgreSQL Server ----"
@@ -30,4 +37,4 @@ apt-get install -y npm
 ln -s /usr/bin/nodejs /usr/bin/node
 npm install -g less less-plugin-clean-css
 
-useradd -m -g sudo -s /bin/bash odoo -p odoo
+id -u odoo &>/dev/null || useradd -m -g sudo -s /bin/bash odoo -p odoo
