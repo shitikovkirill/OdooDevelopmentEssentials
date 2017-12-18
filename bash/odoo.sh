@@ -22,6 +22,7 @@ auto_reload = True
 EOF
 
 echo -e "\n---- For finish install run this comands ----"
+echo "cd odoo"
 echo "python odoo.py setup_deps"
 echo "python odoo.py setup_pg"
 echo "python odoo.py"
