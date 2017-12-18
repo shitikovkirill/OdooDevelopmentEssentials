@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
-sudo su - postgres -c "createuser -s $USER"
-
 # Install Odoo
 echo -e "\n---- Install Odoo ----"
 
@@ -17,14 +14,14 @@ sudo pip install -r requirements.txt
 
 echo -e "\n---- Create config file ----"
 cd 
-cat <<EOF
+cat <<EOF>.openerp_serverrc
 [options]
 addons_path = /home/vagrant/odoo/openerp/addons,/home/vagrant/odoo/addons,/vagrant
 admin_passwd = admin
 auto_reload = True
-EOF > .openerp_serverrc
+EOF
 
 echo -e "\n---- For finish install run this comands ----"
 echo "python odoo.py setup_deps"
 echo "python odoo.py setup_pg"
-echo 'python odoo.py --save --addons-path="./openerp/addons,./addons,/vagrant" --stop-after-init --auto-reload'
+echo "python odoo.py"
