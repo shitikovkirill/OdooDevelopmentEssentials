@@ -24,6 +24,12 @@
                 <field name="name" position="attributes">
                     <attribute name="string">I have to...</attribute>
                 </field>
+                <sheet position="after">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"></field>
+                        <field name="message_ids" widget="mail_thread"></field>
+                    </div>
+                </sheet>
             </field>
         </record>
 
