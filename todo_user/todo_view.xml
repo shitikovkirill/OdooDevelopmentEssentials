@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
+        <record id="todo_app.menu_todo_task" model="ir.ui.menu">
+            <field name="name">My To-Do</field>
+        </record>
+        <record id="todo_app.action_todo_task" model="ir.actions.act_window">
+            <field name="context">
+                {'search_default_filter_my_tasks': True}
+            </field>
+        </record>
+
         <record id="view_form_todo_task_inherited" model="ir.ui.view">
             <field name="name">Todo Task form – User extension</field>
             <field name="model">todo.task</field>
